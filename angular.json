@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "adm-computadores"
+  "defaultProject": "adm-computadores",
+  "cli": {
+    "analytics": false
+  }
 }
