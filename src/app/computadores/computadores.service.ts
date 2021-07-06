@@ -32,5 +32,4 @@ export class ComputadoresService {
         return this.http.delete(`${this.API}/${id}`);
     }
 }
-
-
+// json-server --watch db.json

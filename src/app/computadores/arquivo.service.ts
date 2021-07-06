@@ -17,3 +17,4 @@ export class ArquivoService {
         return this.http.request(request);
     }
 }
+// na pasta server, rodar: npm run start
