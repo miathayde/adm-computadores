@@ -2,6 +2,9 @@
     "cSpell.words": [
         "Formulario",
         "Marca",
+        "Modelo",
+        "Placa",
+        "Ryzer",
         "Salvar",
         "Servidor",
         "arquivo",
@@ -14,6 +17,8 @@
         "editar",
         "identificador",
         "lista",
-        "porta"
+        "memoria",
+        "porta",
+        "processador"
     ]
 }

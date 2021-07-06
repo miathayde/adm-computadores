@@ -28,8 +28,13 @@ export class FormularioComponent implements OnInit {
     this.form = this.fb.group({
       id: [computador.id],
       nome: [computador.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
-      arquivo: [null],
-
+      arquivo: [computador.arquivo],
+      marca: [computador.marca, [Validators.required]],
+      placaMae: [computador.placaMae, [Validators.required]],
+      memoriaRam: [computador.memoriaRam, [Validators.required]],
+      hd: [computador.hd, [Validators.required]],
+      hdMarca: [computador.hdMarca, [Validators.required]],
+      processador: [computador.processador, [Validators.required]]
     });
   }
 

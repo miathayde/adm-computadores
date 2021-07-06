@@ -21,8 +21,14 @@ export class ComputadorResolverGuard implements Resolve<Computadores> {
 
         return of({
             id: null,
-            nome: null
+            nome: null,
+            arquivo: null,
+            marca: null,
+            placaMae: null,
+            memoriaRam: null,
+            hd: null,
+            hdMarca: null,
+            processador: null
          });
     }
-    
 }

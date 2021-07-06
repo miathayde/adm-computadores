@@ -1,13 +1,15 @@
 {
   "computadores": [
     {
-      "id": 1,
-      "nome": "Computador principal"
-    },
-    {
-      "nome": "Angular",
+      "nome": "Computador principal",
       "arquivo": null,
-      "id": 2
+      "id": 1,
+      "marca": "Cougar",
+      "placaMae": "Gigabyte DS3P-FX",
+      "memoriaRam":"RyzerX",
+      "hd": "500GB 7200rpm",
+      "hdMarca": "Western Digital",
+      "processador": "3,5gHz"
     }
   ]
 }
