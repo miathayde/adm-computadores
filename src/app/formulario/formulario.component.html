@@ -1,6 +1,32 @@
-<div class="row">
-    <div class="col-lg-4">
-        <label>Marca</label>
-        <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
+<form class="needs-validation" novalidate [formGroup]="form">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="nome">Nome identificador</label>
+      <input
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && hasError('nome') }"
+        id="nome"
+        type="text"
+        placeholder="Nome do computador"
+        aria-label="default input example"
+        formControlName="nome"
+      />
     </div>
-</div>
+  </div>
+</form>
+
+  <div class="col">
+    <label for="formFile" id="customFileLabel" class="form-label">Arquivo</label>
+    <input
+      class="form-control"
+      type="file"
+      id="arquivo"
+      (change)="onChange($event)"
+    />
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+      Salvar
+    </button>
+  </div>

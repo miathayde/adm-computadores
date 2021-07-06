@@ -1,0 +1,13 @@
+{
+  "computadores": [
+    {
+      "id": 1,
+      "nome": "Computador principal"
+    },
+    {
+      "nome": "Angular",
+      "arquivo": null,
+      "id": 2
+    }
+  ]
+}
