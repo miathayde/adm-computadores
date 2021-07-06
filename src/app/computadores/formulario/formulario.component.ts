@@ -29,6 +29,7 @@ export class FormularioComponent implements OnInit {
       id: [computador.id],
       nome: [computador.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
       arquivo: [computador.arquivo],
+      modelo: [computador.modelo, [Validators.required]],
       marca: [computador.marca, [Validators.required]],
       placaMae: [computador.placaMae, [Validators.required]],
       memoriaRam: [computador.memoriaRam, [Validators.required]],

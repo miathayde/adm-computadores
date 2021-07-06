@@ -2,15 +2,39 @@
   <form class="needs-validation" novalidate [formGroup]="form">
     <div class="row">
       <div class="col-md-4">
-        <label for="nome">Nome identificador</label>
+        <label for="nome">Nome</label>
         <input
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && hasError('nome') }"
           id="nome"
           type="text"
-          placeholder="Nome do computador"
+          placeholder="Nome identificador"
           aria-label="default input example"
           formControlName="nome"
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="nome">Modelo</label>
+        <input
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && hasError('modelo') }"
+          id="modelo"
+          type="text"
+          placeholder=""
+          aria-label="default input example"
+          formControlName="modelo"
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="nome">Placa-mãe</label>
+        <input
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && hasError('placaMae') }"
+          id="placaMae"
+          type="text"
+          placeholder=""
+          aria-label="default input example"
+          formControlName="placaMae"
         />
       </div>
     </div>

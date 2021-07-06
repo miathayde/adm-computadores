@@ -23,6 +23,7 @@ export class ComputadorResolverGuard implements Resolve<Computadores> {
             id: null,
             nome: null,
             arquivo: null,
+            modelo: null,
             marca: null,
             placaMae: null,
             memoriaRam: null,
