@@ -1,22 +1,42 @@
 <!-- <div class="titulo">
     <h3>Lista de Computadores</h3>
 </div> -->
-<div class="card">
+<div class="header mb-3">
+  <div class="card">
     <div class="card-body">
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Lista de Computadores</h4>
-            </div>
-            <div class="col">
-                <div>
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                <input class="form-control" type="text" placeholder="Digite aqui para pesquisar...">
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Lista de Computadores</h4>
         </div>
-      
+        <div class="col">
+          <input class="form-control" type="text" placeholder="Digite aqui para pesquisar...">
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
+<div class="portlet mt-2" *ngFor="let computador of computadores">
+  <div class="card" style="width: 22rem;">
+    <div *ngIf="!computador.arquivo"><img class="card-img-top" src="assets/sem-imagem.jpg" alt="Computador sem imagem"></div>
+    <div *ngIf="computador.arquivo"><img class="card-img-top" src="..." alt="Card image cap"></div>
+    <div class="card-body">
+      <h5 class="card-title">{{ computador.nome }}</h5>
+      <hr>
+      <p class="card-text"><b>Marca: </b>{{ computador.marca }}</p>
+      <p class="card-text"><b>Modelo: </b>{{ computador.modelo }}</p>
+      <p class="card-text"><b>Placa-mãe: </b>{{ computador.placaMae }}</p>
+      <p class="card-text"><b>Memória RAM: </b>{{ computador.memoriaRam }}</p>
+      <p class="card-text"><b>HD: </b>{{computador.hdMarca}} - {{ computador.hd }}</p>
+      <p class="card-text"><b>Velocidade do processador: </b>{{ computador.processador }}</p>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-info" (click)="onEdit()" style="color: white">Editar</button>
+        <button type="button" class="btn btn-danger" (click)="onDelete()">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- <button type="button" class="btn btn-primary" (click)="onDelete()">Não</button> -->
