@@ -1,3 +1,9 @@
+<div class="titulo" *ngIf="!form.value.id">
+  <h3>Cadastro de Novos Computadores</h3>
+</div>
+<div class="titulo" *ngIf="form.value.id">
+  <h3>Editar Dados</h3>
+</div>
 <div class="formulario">
   <form class="needs-validation" novalidate [formGroup]="form">
     <div class="row">
@@ -14,6 +20,18 @@
         />
       </div>
       <div class="col-md-4">
+        <label for="nome">Marca</label>
+        <input
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && hasError('marca') }"
+          id="marca"
+          type="text"
+          placeholder=""
+          aria-label="default input example"
+          formControlName="marca"
+        />
+      </div>
+      <div class="col-md-4">
         <label for="nome">Modelo</label>
         <input
           class="form-control"
@@ -25,7 +43,9 @@
           formControlName="modelo"
         />
       </div>
-      <div class="col-md-4">
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-3">
         <label for="nome">Placa-mãe</label>
         <input
           class="form-control"
@@ -37,22 +57,72 @@
           formControlName="placaMae"
         />
       </div>
+      <div class="col-md-3">
+        <label for="nome">Memória RAM</label>
+        <input
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && hasError('memoriaRam') }"
+          id="memoriaRam"
+          type="text"
+          placeholder=""
+          aria-label="default input example"
+          formControlName="memoriaRam"
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="nome">HD</label>
+        <input
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && hasError('hd') }"
+          id="hd"
+          type="text"
+          placeholder=""
+          aria-label="default input example"
+          formControlName="hd"
+        />
+      </div>
+      <div class="col-md-3">
+        <label for="nome">Marca do HD</label>
+        <input
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && hasError('hdMarca') }"
+          id="hdMarca"
+          type="text"
+          placeholder=""
+          aria-label="default input example"
+          formControlName="hdMarca"
+        />
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-4">
+        <label for="nome">Velocidade do Processador</label>
+        <input
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && hasError('processador') }"
+          id="processador"
+          type="text"
+          placeholder=""
+          aria-label="default input example"
+          formControlName="processador"
+        />
+      </div>
+      <div class="col">
+        <label for="formFile" id="customFileLabel" class="form-label formFile">Foto</label>
+        <input
+          class="form-control"
+          type="file"
+          id="arquivo"
+          (change)="onChange($event)"
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col d-flex justify-content-end">
+        <button type="submit" class="btn btn-dark btn-lg" (click)="onSubmit()">
+          Salvar
+        </button>
+      </div>
     </div>
   </form>
-  
-    <div class="col">
-      <label for="formFile" id="customFileLabel" class="form-label">Arquivo</label>
-      <input
-        class="form-control"
-        type="file"
-        id="arquivo"
-        (change)="onChange($event)"
-      />
-    </div>
-  
-    <div>
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">
-        Salvar
-      </button>
-    </div>
 </div>

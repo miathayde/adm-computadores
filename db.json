@@ -1,13 +1,13 @@
 {
   "computadores": [
     {
-      "nome": "Computador principal",
-      "arquivo": null,
       "id": 1,
+      "nome": "CPU-790",
+      "arquivo": null,
       "modelo": "Samsung Odyssey",
       "marca": "Cougar",
       "placaMae": "Gigabyte DS3P-FX",
-      "memoriaRam":"RyzerX",
+      "memoriaRam": "RyzerX",
       "hd": "500GB 7200rpm",
       "hdMarca": "Western Digital",
       "processador": "3,5gHz"
