@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormularioComponent } from './formulario/formulario.component';
-import { ListaComponent } from '../lista/lista.component';
+import { FormularioComponent } from './computadores/formulario/formulario.component';
+import { ListaComponent } from './computadores/lista/lista.component';
 
 @NgModule({
   declarations: [

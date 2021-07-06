@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ComputadoresService } from '../computadores/computadores.service';
-import { FormularioService } from './formulario.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { ArquivoService } from '../arquivo.service';
+import { ComputadoresService } from '../computadores.service';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -15,14 +15,19 @@ export class FormularioComponent implements OnInit {
   files: Set<File>;
 
   constructor(
-    private formularioService: FormularioService,
+    private arquivoService: ArquivoService,
     private computadorService: ComputadoresService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
+    const computador = this.route.snapshot.data['computador'];
+
     this.form = this.fb.group({
-      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      id: [computador.id],
+      nome: [computador.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
       arquivo: [null],
 
     });
@@ -49,11 +54,19 @@ export class FormularioComponent implements OnInit {
     this.submitted = true;
     if(this.form.valid) {
       console.log("valido");
-      this.computadorService.create(this.form.value).subscribe(
-        result => {
+      if(this.form.value.id) {
+        this.computadorService.update(this.form.value).subscribe(
+          result => {
 
-        }, error => console.log(error)
-      )
+          }, error => console.log(error)
+        )
+      } else {
+        this.computadorService.create(this.form.value).subscribe(
+          result => {
+  
+          }, error => console.log(error)
+        );
+      }
     }
     console.log(this.form.value)
 

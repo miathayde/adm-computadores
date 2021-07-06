@@ -16,8 +16,20 @@ export class ComputadoresService {
         return this.http.get<Computadores[]>(this.API);
     }
 
+    loadById(id) {
+        return this.http.get<Computadores>(`${this.API}/${id}`);
+    }
+
     create(computador) {
         return this.http.post(this.API, computador).pipe();
+    }
+
+    update(computador) {
+        return this.http.put(`${this.API}/${computador.id}`, computador);
+    }
+
+    remove(id) {
+        return this.http.delete(`${this.API}/${id}`);
     }
 }
 
