@@ -52,14 +52,14 @@ export class FormularioComponent implements OnInit {
     for(let i = 0; i < selectedFile.length; i++) {
       fileNames.push(selectedFile[i].name);
       this.files.add(selectedFile[i]);
+
+      this.form.value.arquivo = selectedFile[i].name;
     }
-    // document.getElementById('customFileLabel').innerHTML = fileNames.join(', ');
   }
 
   onSubmit() {
     this.submitted = true;
     if(this.form.valid) {
-      console.log("valido");
       if(this.form.value.id) {
         this.computadorService.update(this.form.value).subscribe(
           result => {
@@ -73,11 +73,9 @@ export class FormularioComponent implements OnInit {
           }, error => console.log(error)
         );
       }
+      this.arquivoService.upload(this.files, 'http://localhost:8000/upload')
+        .subscribe();
     }
-    console.log(this.form.value)
-
-    // this.formularioService.upload(this.files, 'http://localhost:8000/upload')
-    //   .subscribe(response => console.log("concluido"));
   }
 
   onCancel() {

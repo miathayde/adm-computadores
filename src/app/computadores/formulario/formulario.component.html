@@ -119,7 +119,7 @@
     </div>
     <div class="row mt-3">
       <div class="col d-flex justify-content-end">
-        <button type="submit" class="btn btn-dark btn-lg" (click)="onSubmit()">
+        <button type="submit" class="btn btn-dark btn-lg" (click)="onSubmit()" [disabled]="!form.valid">
           Salvar
         </button>
       </div>

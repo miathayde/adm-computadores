@@ -11,6 +11,18 @@
       "hd": "500GB 7200rpm",
       "hdMarca": "Western Digital",
       "processador": "3,5gHz"
+    },
+    {
+      "id": 2,
+      "nome": "CPU-8300",
+      "arquivo": "D_NQ_NP_909334-MLB45867084798_052021-W.jpg",
+      "modelo": "Christal 570x RGB",
+      "marca": "Corsair",
+      "placaMae": "Gigabyte Z370 Ultra Gaming RGB",
+      "memoriaRam": "Corsair Vengeance",
+      "hd": "500 GB",
+      "hdMarca": "Samsung",
+      "processador": "4,70 GHz"
     }
   ]
 }
