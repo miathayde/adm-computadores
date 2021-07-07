@@ -13,6 +13,7 @@ export class ListaComponent implements OnInit {
   @ViewChild('deleteModal') deleteModal;
 
   computadores: Computadores[];
+  allComputadores: Computadores[];
   computadorSelected: Computadores;
   search: string;
 
@@ -37,7 +38,7 @@ export class ListaComponent implements OnInit {
     this.service.list().subscribe(
       result => {
         this.computadores = result;
-        
+        this.allComputadores = result;
         // this.computadores.forEach(pc => {
         //   pc.arquivo ? pc.arquivo = 'server/uploads/' + pc.arquivo : pc.arquivo = null;
         // })
@@ -66,12 +67,17 @@ export class ListaComponent implements OnInit {
     );
   }
 
-  onSearch() {
-    let allComputadores = this.computadores;
+  onSearch(e: string) {
+    this.search = e.trim();
      
-      this.computadores = allComputadores.filter(x => x.nome.includes(this.search) ||
-        x.placaMae.includes(this.search) || x.processador.includes(this.search) || 
-        x.hd.includes(this.search) || x.hdMarca.includes(this.search) || x.marca.includes(this.search) ||
-        x.memoriaRam.includes(this.search) || x.modelo.includes(this.search));
+      this.computadores = this.allComputadores.filter(x => {
+        const filter = (x.nome.indexOf(this.search) >= 0) || 
+        (x.placaMae.indexOf(this.search) >= 0) || (x.processador.indexOf(this.search) >= 0) ||
+        (x.hd.indexOf(this.search) >= 0) || (x.hdMarca.indexOf(this.search) >= 0) ||
+        (x.marca.indexOf(this.search) >= 0) || (x.modelo.indexOf(this.search) >= 0) ||
+        (x.memoriaRam.indexOf(this.search) >= 0);
+
+        return filter;
+      });
   }
 }
