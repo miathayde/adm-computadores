@@ -8,4 +8,5 @@ export interface Computadores {
     hd: string;
     hdMarca: string;
     processador: string;
+    arquivo: string;
 }

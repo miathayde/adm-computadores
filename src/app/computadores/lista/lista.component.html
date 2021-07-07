@@ -16,7 +16,7 @@
 <div class="portlet mt-2" *ngFor="let computador of computadores">
   <div class="card" style="width: 22rem;">
     <div *ngIf="!computador.arquivo"><img class="card-img-top" src="assets/sem-imagem.jpg" alt="Computador sem imagem"></div>
-    <div *ngIf="computador.arquivo"><img class="card-img-top" src="..." alt="Card image cap"></div>
+    <div *ngIf="computador.arquivo"><img class="card-img-top" src="server/uploads/{{computador.arquivo}}" alt="Imagem do computador"></div>
     <div class="card-body">
       <h5 class="card-title">{{ computador.nome }}</h5>
       <hr>

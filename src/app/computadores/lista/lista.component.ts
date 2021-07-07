@@ -35,6 +35,10 @@ export class ListaComponent implements OnInit {
     this.service.list().subscribe(
       result => {
         this.computadores = result;
+
+        // this.computadores.forEach(pc => {
+        //   pc.arquivo ? pc.arquivo = 'server/uploads/' + pc.arquivo : pc.arquivo = null;
+        // })
       }
     );
   }
