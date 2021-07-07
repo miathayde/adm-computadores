@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ArquivoService } from '../arquivo.service';
 import { ComputadoresService } from '../computadores.service';
 @Component({
@@ -9,17 +10,21 @@ import { ComputadoresService } from '../computadores.service';
   styleUrls: ['./formulario.component.scss']
 })
 export class FormularioComponent implements OnInit {
+  @ViewChild('successModal') successModal;
 
   form: FormGroup;
   submitted: boolean = false;
   files: Set<File>;
   isNew: boolean;
 
+  successModalRef: BsModalRef;
+
   constructor(
     private arquivoService: ArquivoService,
     private computadorService: ComputadoresService,
     private fb: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit(): void {
@@ -58,20 +63,29 @@ export class FormularioComponent implements OnInit {
     }
   }
 
+  modalOpen() {
+    this.successModalRef = this.modalService.show(this.successModal, {
+      class: 'modal-sm'
+    })
+  }
+
+  exitModal() {
+    this.successModalRef.hide();
+  }
+
   onSubmit() {
     this.submitted = true;
     if(this.form.valid) {
       if(this.form.value.id) {
         this.computadorService.update(this.form.value).subscribe(
           () => {
-            this.isNew = false;
+            this.modalOpen();
           }, error => console.log(error)
         );
       } else {
         this.computadorService.create(this.form.value).subscribe(
           () => {
-            this.isNew = true;
-            this.form.reset();
+            this.modalOpen();
           }, error => console.log(error)
         );
       }

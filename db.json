@@ -18,11 +18,23 @@
       "arquivo": "D_NQ_NP_842791-MLV46393056105_062021-W.jpg",
       "modelo": "h81M",
       "marca": "Asus",
-      "placaMae": "ASUS h81m-C",
+      "placaMae": "Asus h81m-C",
       "memoriaRam": "Hyperx - 8GB",
       "hd": "SSD 500GB",
       "hdMarca": "Western Digital",
       "processador": "3,90 GHz"
+    },
+    {
+      "id": 4,
+      "nome": "CPU-882",
+      "arquivo": null,
+      "modelo": "Game Dev",
+      "marca": "World PC",
+      "placaMae": "Asus h81m-C",
+      "memoriaRam": "8gb DDR3 Dual-Channel",
+      "hd": "500GB",
+      "hdMarca": "Samsung",
+      "processador": "3.2 GHz"
     }
   ]
 }
