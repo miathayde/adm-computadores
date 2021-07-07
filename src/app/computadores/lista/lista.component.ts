@@ -36,6 +36,8 @@ export class ListaComponent implements OnInit {
       result => {
         this.computadores = result;
 
+        this.computadores.push(this.computadores[0])
+        this.computadores.push(this.computadores[1])
         // this.computadores.forEach(pc => {
         //   pc.arquivo ? pc.arquivo = 'server/uploads/' + pc.arquivo : pc.arquivo = null;
         // })
