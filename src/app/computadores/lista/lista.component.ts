@@ -48,11 +48,8 @@ export class ListaComponent implements OnInit {
   onDelete(computador) {
     this.computadorSelected = computador;
 
-    this.deleteModalRef = this.deleteModalRef = this.modalService.show(this.deleteModal, {
-      class: 'modal-sm',
-      initialState: {
-
-      }
+    this.deleteModalRef = this.modalService.show(this.deleteModal, {
+      class: 'modal-sm'
     })
   }
 
