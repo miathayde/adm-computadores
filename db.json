@@ -1,20 +1,8 @@
 {
   "computadores": [
     {
-      "id": 1,
-      "nome": "CPU-790",
-      "arquivo": null,
-      "modelo": "Samsung Odyssey",
-      "marca": "Cougar",
-      "placaMae": "Gigabyte DS3P-FX",
-      "memoriaRam": "RyzerX",
-      "hd": "500GB 7200rpm",
-      "hdMarca": "Western Digital",
-      "processador": "3,5gHz"
-    },
-    {
       "id": 2,
-      "nome": "CPU-8300",
+      "nome": "CPU-8302",
       "arquivo": "D_NQ_NP_909334-MLB45867084798_052021-W.jpg",
       "modelo": "Christal 570x RGB",
       "marca": "Corsair",
@@ -23,6 +11,18 @@
       "hd": "500 GB",
       "hdMarca": "Samsung",
       "processador": "4,70 GHz"
+    },
+    {
+      "id": 3,
+      "nome": "CPU-225",
+      "arquivo": "D_NQ_NP_842791-MLV46393056105_062021-W.jpg",
+      "modelo": "h81M",
+      "marca": "Asus",
+      "placaMae": "ASUS h81m-C",
+      "memoriaRam": "Hyperx - 8GB",
+      "hd": "SSD 500GB",
+      "hdMarca": "Western Digital",
+      "processador": "3,90 GHz"
     }
   ]
 }

@@ -10,18 +10,19 @@ import { ComputadoresService } from '../computadores.service';
   styleUrls: ['./lista.component.scss']
 })
 export class ListaComponent implements OnInit {
-  // @ViewChild('deleteModal') deleteModal;
+  @ViewChild('deleteModal') deleteModal;
 
   computadores: Computadores[];
   computadorSelected: Computadores;
   search: string;
 
-  // deleteModalRef: BsModalRef;
+  deleteModalRef: BsModalRef;
 
   constructor(
     private service: ComputadoresService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private modalService: BsModalService
     ) { }
 
   ngOnInit(): void {
@@ -36,9 +37,7 @@ export class ListaComponent implements OnInit {
     this.service.list().subscribe(
       result => {
         this.computadores = result;
-
-        this.computadores.push(this.computadores[0])
-        this.computadores.push(this.computadores[1])
+        
         // this.computadores.forEach(pc => {
         //   pc.arquivo ? pc.arquivo = 'server/uploads/' + pc.arquivo : pc.arquivo = null;
         // })
@@ -48,13 +47,26 @@ export class ListaComponent implements OnInit {
 
   onDelete(computador) {
     this.computadorSelected = computador;
-    // this.deleteModalRef = this.modalService.show(this.deleteModal, {
-    //   class: 'modal-sm'
-    // })
 
+    this.deleteModalRef = this.deleteModalRef = this.modalService.show(this.deleteModal, {
+      class: 'modal-sm',
+      initialState: {
+
+      }
+    })
+  }
+
+  onDeclineDelete() {
+    this.deleteModalRef.hide();
+  }
+
+  onConfirmDelete() {
     this.service.remove(this.computadorSelected.id).subscribe(
-      () => this.onRefresh()
-    )
+      () => {
+        this.onRefresh();
+        this.deleteModalRef.hide();
+      }
+    );
   }
 
   onSearch() {

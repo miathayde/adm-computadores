@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './computadores/formulario/formulario.component';
 import { ListaComponent } from './computadores/lista/lista.component';
 import { HeaderComponent } from './computadores/header/header.component';
+import { BsModalRef, BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { HeaderComponent } from './computadores/header/header.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [BsModalRef, BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

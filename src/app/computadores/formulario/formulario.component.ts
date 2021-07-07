@@ -13,6 +13,7 @@ export class FormularioComponent implements OnInit {
   form: FormGroup;
   submitted: boolean = false;
   files: Set<File>;
+  isNew: boolean;
 
   constructor(
     private arquivoService: ArquivoService,
@@ -62,19 +63,22 @@ export class FormularioComponent implements OnInit {
     if(this.form.valid) {
       if(this.form.value.id) {
         this.computadorService.update(this.form.value).subscribe(
-          result => {
-
+          () => {
+            this.isNew = false;
           }, error => console.log(error)
-        )
+        );
       } else {
         this.computadorService.create(this.form.value).subscribe(
-          result => {
-  
+          () => {
+            this.isNew = true;
+            this.form.reset();
           }, error => console.log(error)
         );
       }
-      this.arquivoService.upload(this.files, 'http://localhost:8000/upload')
+      if(this.files) {
+        this.arquivoService.upload(this.files, 'http://localhost:8000/upload')
         .subscribe();
+      }
     }
   }
 

@@ -40,10 +40,12 @@
 
 <!-- <button type="button" class="btn btn-primary" (click)="onDelete()">Não</button> -->
 
-<!-- <ng-template #deleteModal>
+<ng-template #deleteModal>
     <div class="modal-body">
-        <p>Oi</p>
-        <button type="button" class="btn btn-default">Sim</button>
-        <button type="button" class="btn btn-primary">Não</button>
+        <p>Tem certeza que deseja apagar este cadastro?</p>
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-secondary" (click)="onConfirmDelete()">Sim</button>
+          <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Não</button>
+        </div>
     </div>
-</ng-template> -->
+</ng-template>
