@@ -6,7 +6,7 @@
           <h4>Lista de Computadores</h4>
         </div>
         <div class="col">
-          <input class="form-control" type="text" placeholder="Digite aqui para pesquisar...">
+          <input class="form-control" type="text" placeholder="Digite aqui para pesquisar..." [(ngModel)]="search" (ngModelChange)="onSearch()">
         </div>
       </div>
     </div>

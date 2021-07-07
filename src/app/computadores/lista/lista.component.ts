@@ -14,6 +14,7 @@ export class ListaComponent implements OnInit {
 
   computadores: Computadores[];
   computadorSelected: Computadores;
+  search: string;
 
   // deleteModalRef: BsModalRef;
 
@@ -54,5 +55,14 @@ export class ListaComponent implements OnInit {
     this.service.remove(this.computadorSelected.id).subscribe(
       () => this.onRefresh()
     )
+  }
+
+  onSearch() {
+    let allComputadores = this.computadores;
+     
+      this.computadores = allComputadores.filter(x => x.nome.includes(this.search) ||
+        x.placaMae.includes(this.search) || x.processador.includes(this.search) || 
+        x.hd.includes(this.search) || x.hdMarca.includes(this.search) || x.marca.includes(this.search) ||
+        x.memoriaRam.includes(this.search) || x.modelo.includes(this.search));
   }
 }
